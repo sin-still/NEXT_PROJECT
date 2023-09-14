@@ -3,7 +3,6 @@ import { ObjectId } from 'mongodb';
 import styles from './page.module.css'
 import { connectDB } from '@/util/database'
 import Wish from "@/components/Wish";
-import { updateWishCount } from '@/pages/api/post/updatewish';
 
 
 
