@@ -1,95 +1,48 @@
+import { connectDB } from '@/util/database'
 import Image from 'next/image'
 import styles from './page.module.css'
+import MoviesSwiper from '@/components/MoviesSwiper'
+import MoviesSwiper1 from '@/components/MoviesSwiper1'
+import Link from 'next/link';
 
-export default function Home() {
+
+
+export default async function Home() {
+  const client = await connectDB;
+  const db = client.db('shop')
+  let result = await db.collection('new').find().toArray();
+  
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <div className={styles.banner}>
+        <MoviesSwiper />
+      </div>
+      <div className={styles.banner1}>
+        <MoviesSwiper1 />
+      </div>
+      <div className="new-arrival">
+        <h2>NEW ARRIVAL</h2>
+        <p>월, 수, 금 오후 1시 신상 업데이트</p>
+        <div className="new-wrap">
+          {
+            result.map((item, i)=>{
+              return(
+                <div className='new-card' key={item._id}>
+                    <Link href={`/detail/${item._id}`} scroll={true}>
+                    <img src= {item.image} alt="" />
+                    <div className='card-box'>
+                      <h3 className='title'>{item.title}</h3>
+                      <h3 className='price'>{item.price}원</h3>
+                      <h3 className='description'>{item.description}</h3>
+                    </div>
+                  </Link>
+                  </div>
+
+              )
+            })
+          }
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   )
 }

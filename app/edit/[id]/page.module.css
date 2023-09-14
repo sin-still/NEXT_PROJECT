@@ -1,0 +1,35 @@
+.writeWrap{
+   padding: 10rem 5rem;
+   font-size: 1.6rem;
+}
+.writeWrap h4{
+   margin-bottom: 2rem;
+}
+.writeWrap form{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: end;
+}
+.writeWrap form input{
+   display: block;
+   width: 100%;
+   padding: .5rem;
+   margin-bottom: 1rem;
+   border:1px solid #ddd;
+
+}
+.writeWrap form textarea{
+   display: block;
+   width: 100%;
+   padding: .5rem;
+   margin-bottom: 1rem;
+   border:1px solid #ddd;
+
+
+}
+.writeWrap form button{
+   border: none;
+   padding: .5rem 2rem;
+   width: 20rem;
+}
