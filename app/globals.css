@@ -270,7 +270,41 @@ ul{
 }
 
 
+/* 카트 */
+.cart{display: flex;}
+.minus{
+  cursor: pointer; display: inline-block; width: 2rem; height: 2rem; text-align: center; border: 1px solid #ddd;
+}
+.number{text-align: center;}
+.plus{
+  cursor: pointer; display: inline-block; width: 2rem; height: 2rem; text-align: center; border: 1px solid #ddd;
+}
+.btnStyle2{
+  border: none;
+   width: 20rem;
+   /* padding: 0 2rem; */
+   height: 5rem;
+   cursor: pointer;
+}
+.cartBtn{
+  background: #fff;
+   transition: .3s;
+   margin-right: 2rem;
+   border: 1px solid #000;
+}
+.buy{
+  background: #b44040;
+   color: #fff;
+   transition: .3s;
+}
 
+.cartList{ }
+.cartList tr{}
+.cartList tr td{border-bottom: 1px solid #ddd; padding: 2rem 0;}
+.cartList tr td input{}
+.cartList tr td span{}
+.cartList tr td span img{ width: 5rem; height: 5rem; vertical-align: middle;}
+.cartList tr td strong{margin-left: 1rem;}
 
 
 /* 조인 */

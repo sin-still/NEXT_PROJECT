@@ -3,6 +3,7 @@ import { ObjectId } from 'mongodb';
 import styles from './page.module.css'
 import { connectDB } from '@/util/database'
 import Wish from "@/components/Wish";
+import Cart from '@/components/Cart';
 
 
 
@@ -59,8 +60,9 @@ console.log(result.color)
                </div>
                <div className={styles.productInfo3}>
                <Wish result={result}/>
-                  <button className={`${styles.btnStyle} ${styles.cart}`}>장바구니</button>
-                  <button className={`${styles.btnStyle} ${styles.buy}`}>결제하기</button>
+                  {/* <button className={`${styles.btnStyle} ${styles.cart}`}>장바구니</button>
+                  <button className={`${styles.btnStyle} ${styles.buy}`}>결제하기</button> */}
+                  <Cart result = { result }></Cart>
                </div>
             </div>
          </div>
