@@ -13,6 +13,10 @@ export const authOptions = {
       clientId:'f64c37754a678ba0471a',
       clientSecret:'e054feca598f8e562003ce9e747997205c6a71f7'
     }),
+    NaverProvider({
+      clientId:'pDJbQTRdDFd4M5a7rgru',
+      clientSecret:'P4a3L4xBOb'
+    }),
     CredentialsProvider({
       //1. 로그인페이지 폼 자동생성해주는 코드
       name: "credentials",
