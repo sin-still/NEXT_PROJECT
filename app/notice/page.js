@@ -10,7 +10,7 @@ export default async function Notice(){
     let result=await db.collection('post').find().toArray();
     console.log(result)
     return(
-        <div className={styles.notice}>
+        <div className={styles.noticeWrap}>
             <h4>Notice</h4>
             <table>
                 <thead>

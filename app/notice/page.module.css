@@ -54,3 +54,6 @@
    justify-content: right;
 
 }
+.noticeWrap button{
+   cursor: pointer;
+}
