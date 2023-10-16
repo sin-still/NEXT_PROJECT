@@ -84,10 +84,10 @@ ul{
   border-bottom: 1px solid #ddd;
 }
 .top-logo a{
-  width: 32rem;
 }
 .top-logo img{
-  width: 100%;
+  height: 20rem;
+  width: auto;
 }
 
 /* 글로벌 메뉴 */
